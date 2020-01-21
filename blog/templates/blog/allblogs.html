@@ -7,7 +7,7 @@
         <meta name="description" content="">
         <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
         <meta name="generator" content="Jekyll v3.8.6">
-        <title>Egor Krasilnikov</title>
+        <title>Egor's Blog</title>
         <!--      Font Awesome Icons-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/album/">
@@ -45,45 +45,42 @@
           <a class="nav-item nav-link" href="https://vk.com/id464753565">
             <i class="fa fa-vk"></i></a>
           <a class="nav-item nav-link" href="{% static 'Resume.pdf' %}">Resume</a>
-          <a class="nav-item nav-link" href="{% url 'allblogs' %}">Blog</a>
+          <a class="nav-item nav-link active" href="{% url 'allblogs' %}">Blog</a>
         </div>
       </div>
     </nav>
 </header>
 
 <main role="main">
-
-  <section class="jumbotron text-center">
+    
     <div class="container">
-      <h1>Hi, I'm Egor.</h1>
-      <p class="lead text-muted">I'm Egor Krasilnikov and I love to make Django websites. Besides I'm developer of cross-platform mobile applications. </p>
-      <p>
-        <a href="mailto:egor322129@gmail.com" class="btn btn-primary my-2">Email Me</a>
-      </p>
-        <img src="{% static 'IMG_4177.jpg' %}" width="200px" style="border-radius: 25px; border: 1px solid #007bff; padding: 3px">
-    </div>
-  </section>
-
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-      <div class="row">
-          
-          {% for job in jobs.all %}
-            <div class="col-md-4">
-              <div class="card mb-4 shadow-sm">
-                <img class="bd-placeholder-img card-img-top"  src="{{ job.image.url}}" >
-                  
-                <div class="card-body">
-                  <p class="card-text">{{ job.summary }}</p>
-                </div>
-              </div>
-            </div>
-          {% endfor %}
         
-      </div>
+            <h1 class="text-center pt-3">  Welcome to Egor's Blog </h1>
+            <br/>
+            <br/>
+            <h2> Latest Posts</h2>
+            <hr />
+
+        {% for blog in allblogs.all %}
+            <div class="row mb-2">
+                <div class="col-md-8">
+                  <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col-md-8 p-4 d-flex flex-column position-static">
+                      <h3 class="mb-0">{{ blog.title }}</h3>
+                      <div class="mb-1 text-muted">{{ blog.pretty_pub_date }}</div>
+                      <p class="card-text mb-auto"> {{ blog.summary }}...</p>
+                      <a href="{% url 'detail' blog.id %}" class="stretched-link">Continue reading</a>
+                    </div>
+                    <div class="col-md-4 align-self-center text-center">
+                      <img class="img-fluid" style="border-radius: 50%; padding: 5px;" src="{{ blog.image.url }}" width=200 height=200 >
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+            <hr />
+        {% endfor %}
     </div>
-  </div>
 
 </main>
 

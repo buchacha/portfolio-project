@@ -7,7 +7,7 @@
         <meta name="description" content="">
         <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
         <meta name="generator" content="Jekyll v3.8.6">
-        <title>Egor Krasilnikov</title>
+        <title>{{ blog.title }}</title>
         <!--      Font Awesome Icons-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/album/">
@@ -52,38 +52,31 @@
 </header>
 
 <main role="main">
-
-  <section class="jumbotron text-center">
+    
     <div class="container">
-      <h1>Hi, I'm Egor.</h1>
-      <p class="lead text-muted">I'm Egor Krasilnikov and I love to make Django websites. Besides I'm developer of cross-platform mobile applications. </p>
-      <p>
-        <a href="mailto:egor322129@gmail.com" class="btn btn-primary my-2">Email Me</a>
-      </p>
-        <img src="{% static 'IMG_4177.jpg' %}" width="200px" style="border-radius: 25px; border: 1px solid #007bff; padding: 3px">
-    </div>
-  </section>
-
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-      <div class="row">
-          
-          {% for job in jobs.all %}
-            <div class="col-md-4">
-              <div class="card mb-4 shadow-sm">
-                <img class="bd-placeholder-img card-img-top"  src="{{ job.image.url}}" >
-                  
-                <div class="card-body">
-                  <p class="card-text">{{ job.summary }}</p>
-                </div>
-              </div>
+        <br />
+        <div class="row">
+            <div class="col-md-10 offset-md-1">
+                <h3 >{{ blog.title }}</h3>
+            <div class="text-muted">
+                {{ blog.pretty_pub_date }}
             </div>
-          {% endfor %}
+            <br />
+            <div>
+                <img style="float: right; margin: 10px" src="{{ blog.image.url }}" width=50%>
+            </div>
+                <p class="card-text mb-auto"> 
+                    {{ blog.body }}
+                </p>
+            </div>
+            
         
-      </div>
+                
+        
+
+        </div>
+        <hr />
     </div>
-  </div>
 
 </main>
 

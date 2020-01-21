@@ -128,3 +128,12 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static') # new folder to contain all statics
+
+STATIC_URL = '/static/' # url in browser
+
+STATICFILES_DIRS = [ #path on local machine
+    os.path.join(BASE_DIR, 'portfolio/static')
+] 
+
