@@ -135,9 +135,9 @@ STATIC_URL = '/static/' # url in browser
 
 STATICFILES_DIRS = [ #path on local machine
     os.path.join(BASE_DIR, 'portfolio/static')
-] 
+]
 
 try:
-    from local_settings import *
+    from .local_settings import *
 except ImportError:
     pass
